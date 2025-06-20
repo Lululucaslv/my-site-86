@@ -1,0 +1,609 @@
+.huggy-chat-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.huggy-animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.huggy-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 200px;
+    background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+    border-radius: 50%;
+    animation: huggy-wave-animation 15s infinite linear;
+}
+
+.huggy-wave1 {
+    animation-duration: 20s;
+    opacity: 0.3;
+}
+
+.huggy-wave2 {
+    animation-duration: 25s;
+    opacity: 0.2;
+    animation-delay: -5s;
+}
+
+.huggy-wave3 {
+    animation-duration: 30s;
+    opacity: 0.1;
+    animation-delay: -10s;
+}
+
+@keyframes huggy-wave-animation {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+.huggy-chat-container {
+    width: 90vw;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+    background: rgba(30, 30, 50, 0.95);
+    border-radius: 20px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    position: relative;
+}
+
+.huggy-chat-header {
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.2), rgba(142, 68, 173, 0.2));
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(74, 144, 226, 0.3);
+}
+
+.huggy-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.huggy-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.huggy-icon {
+    font-size: 32px;
+    animation: huggy-pulse 2s infinite;
+}
+
+.huggy-logo-section h1 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(135deg, #4a90e2, #8e44ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.huggy-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.huggy-status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.huggy-status-dot {
+    width: 10px;
+    height: 10px;
+    background: #4caf50;
+    border-radius: 50%;
+    animation: huggy-pulse 2s infinite;
+}
+
+.huggy-status-text {
+    color: #4caf50;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.huggy-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.huggy-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.huggy-chat-messages {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-behavior: smooth;
+}
+
+.huggy-chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.huggy-chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.huggy-chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(74, 144, 226, 0.5);
+    border-radius: 3px;
+}
+
+.huggy-welcome-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    animation: huggy-fade-in 0.8s ease-out;
+}
+
+.huggy-message-content {
+    background: rgba(74, 144, 226, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    max-width: 80%;
+}
+
+.huggy-message-content h2 {
+    color: #4a90e2;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.huggy-message-content p {
+    color: #e0e0e0;
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+.huggy-memory-info {
+    background: rgba(74, 144, 226, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid #4a90e2;
+    margin: 15px 0;
+}
+
+.huggy-memory-info p {
+    color: #4a90e2;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.huggy-memory-info ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #b0b0b0;
+}
+
+.huggy-memory-info li {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.huggy-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4a90e2, #8e44ad);
+    border: 2px solid rgba(74, 144, 226, 0.5);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.huggy-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.huggy-avatar.huggy-listening {
+    animation: huggy-gentle-pulse 3s infinite;
+}
+
+.huggy-avatar.huggy-thinking {
+    animation: huggy-thinking-pulse 1.5s infinite;
+}
+
+.huggy-avatar.huggy-responding {
+    animation: huggy-responding-bounce 0.6s infinite alternate;
+}
+
+.huggy-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.huggy-message-bubble {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    animation: huggy-message-slide-in 0.5s ease-out;
+    margin: 10px 0;
+}
+
+.huggy-message-bubble.user {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.huggy-message-text {
+    background: rgba(74, 144, 226, 0.1);
+    padding: 15px 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    color: #e0e0e0;
+    line-height: 1.6;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.huggy-message-bubble.user .huggy-message-text {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 36, 0.2));
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.huggy-streaming-text {
+    position: relative;
+}
+
+.huggy-streaming-text::after {
+    content: '▋';
+    color: #4a90e2;
+    animation: huggy-cursor-blink 1s infinite;
+}
+
+.huggy-typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    animation: huggy-fade-in 0.3s ease-out;
+}
+
+.huggy-typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.huggy-typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: #4a90e2;
+    border-radius: 50%;
+    animation: huggy-typing-bounce 1.4s infinite ease-in-out;
+}
+
+.huggy-typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+.huggy-typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+.huggy-quick-replies {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.huggy-quick-reply-btn {
+    background: rgba(74, 144, 226, 0.1);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    color: #4a90e2;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.huggy-quick-reply-btn:hover {
+    background: rgba(74, 144, 226, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.huggy-chat-input-container {
+    padding: 20px 30px;
+    border-top: 1px solid rgba(74, 144, 226, 0.2);
+    background: rgba(30, 30, 50, 0.8);
+}
+
+.huggy-image-preview-container {
+    margin-bottom: 15px;
+}
+
+.huggy-image-preview {
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(74, 144, 226, 0.3);
+}
+
+.huggy-image-preview img {
+    max-width: 200px;
+    max-height: 150px;
+    display: block;
+}
+
+.huggy-remove-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 107, 107, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.huggy-remove-image-btn:hover {
+    background: rgba(255, 107, 107, 1);
+    transform: scale(1.1);
+}
+
+.huggy-input-wrapper {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.huggy-input-actions {
+    display: flex;
+    align-items: center;
+}
+
+.huggy-image-upload-btn {
+    background: transparent;
+    border: none;
+    color: #4a90e2;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.huggy-image-upload-btn:hover {
+    background: rgba(74, 144, 226, 0.1);
+    transform: scale(1.1);
+}
+
+.huggy-message-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+    min-height: 20px;
+    max-height: 120px;
+    font-family: inherit;
+}
+
+.huggy-message-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.huggy-send-button {
+    background: linear-gradient(135deg, #4a90e2, #8e44ad);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+}
+
+.huggy-send-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.huggy-send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.huggy-input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.huggy-char-count {
+    color: #888;
+}
+
+.huggy-privacy-note {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@keyframes huggy-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes huggy-gentle-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes huggy-thinking-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes huggy-responding-bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-3px); }
+}
+
+@keyframes huggy-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes huggy-message-slide-in {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes huggy-cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes huggy-typing-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+    .huggy-chat-container {
+        width: 95vw;
+        height: 95vh;
+        border-radius: 15px;
+    }
+    
+    .huggy-chat-header {
+        padding: 15px 20px;
+    }
+    
+    .huggy-logo-section h1 {
+        font-size: 24px;
+    }
+    
+    .huggy-chat-messages {
+        padding: 20px;
+    }
+    
+    .huggy-message-text {
+        max-width: 85%;
+        padding: 12px 16px;
+    }
+    
+    .huggy-chat-input-container {
+        padding: 15px 20px;
+    }
+    
+    .huggy-quick-replies {
+        padding: 15px 20px;
+    }
+    
+    .huggy-quick-reply-btn {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .huggy-chat-container {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .huggy-header-content {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    .huggy-controls {
+        align-self: flex-end;
+    }
+    
+    .huggy-message-text {
+        max-width: 90%;
+        font-size: 14px;
+    }
+    
+    .huggy-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .huggy-user-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+}
